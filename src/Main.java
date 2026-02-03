@@ -1,32 +1,12 @@
 public class Main {
     public static void main(String[] args) {
-        Sandwich sandwich1 = new SandwichBuilder()
-                .setBread("baguette")
-                .setCheese("cheddar")
-                .setVegetables("laitue, tomate")
-                .setSauce("mayo")
-                .setToasted(false)
-                .build();
+        Burger burger1 = BurgerFactory.createBurger(BurgerType.CHEESE);
+        System.out.println(burger1.getRecipe() + " - " + burger1.getPrice() + "€");
 
-        Sandwich sandwich2 = new SandwichBuilder()
-                .setBread("complet")
-                .setMeat("rosbif")
-                .build();
+        Burger burger2 = BurgerFactory.createBurger(BurgerType.VEGGIE);
+        System.out.println(burger2.getRecipe() + " - " + burger2.getPrice() + "€");
 
-        Sandwich sandwich3 = new SandwichBuilder()
-                .setBread("ciabatta")
-                .setMeat("poulet")
-                .setCheese("emmental")
-                .setVegetables("tomate, oignon")
-                .setSauce("moutarde")
-                .setToasted(true)
-                .build();
-
-        System.out.println("Commande 1");
-        System.out.println(sandwich1);
-        System.out.println("\nCommande 2");
-        System.out.println(sandwich2);
-        System.out.println("\nCommande 3");
-        System.out.println(sandwich3);
+        Burger burger3 = BurgerFactory.createBurger(BurgerType.CHICKEN);
+        System.out.println(burger3.getRecipe() + " - " + burger3.getPrice() + "€");
     }
 }

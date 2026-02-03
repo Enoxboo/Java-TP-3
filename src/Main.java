@@ -1,12 +1,20 @@
 public class Main {
     public static void main(String[] args) {
-        Burger burger1 = BurgerFactory.createBurger(BurgerType.CHEESE);
-        System.out.println(burger1.getRecipe() + " - " + burger1.getPrice() + "€");
+        TPE tpe1 = TPE.getInstance();
+        tpe1.pay(15.0f);
 
-        Burger burger2 = BurgerFactory.createBurger(BurgerType.VEGGIE);
-        System.out.println(burger2.getRecipe() + " - " + burger2.getPrice() + "€");
+        TPE tpe2 = TPE.getInstance();
+        tpe2.pay(25.5f);
 
-        Burger burger3 = BurgerFactory.createBurger(BurgerType.CHICKEN);
-        System.out.println(burger3.getRecipe() + " - " + burger3.getPrice() + "€");
+        TPE tpe3 = TPE.getInstance();
+        tpe3.pay(9.99f);
+
+        System.out.println("Chiffre d'affaires: " + tpe1.getRevenue() + "€");
+        System.out.println("Chiffre d'affaires: " + tpe2.getRevenue() + "€");
+
+        tpe1.reset();
+
+        System.out.println("Nouvelle journée: " + tpe1.getRevenue() + "€");
+        System.out.println("Nouvelle journée: " + tpe2.getRevenue() + "€");
     }
 }

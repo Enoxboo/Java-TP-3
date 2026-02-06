@@ -1,20 +1,12 @@
 public class Main {
     public static void main(String[] args) {
-        TPE tpe1 = TPE.getInstance();
-        tpe1.pay(15.0f);
+        LecteurCSV lecteur = new LecteurCSV("ventes.csv");
+        System.out.println(lecteur.getNbLignes());
 
-        TPE tpe2 = TPE.getInstance();
-        tpe2.pay(25.5f);
+        AnalyseurVentes analyseur = new CSVAdapter(lecteur);
 
-        TPE tpe3 = TPE.getInstance();
-        tpe3.pay(9.99f);
+        BurgerAnalytics analytics = new BurgerAnalytics(analyseur);
 
-        System.out.println("Chiffre d'affaires: " + tpe1.getRevenue() + "€");
-        System.out.println("Chiffre d'affaires: " + tpe2.getRevenue() + "€");
-
-        tpe1.reset();
-
-        System.out.println("Nouvelle journée: " + tpe1.getRevenue() + "€");
-        System.out.println("Nouvelle journée: " + tpe2.getRevenue() + "€");
+        analytics.genererRapport();
     }
 }
